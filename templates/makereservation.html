@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}Reserve a Movie Listing{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+  <form method="post">
+    <label for="movie_id">Movie ID</label>
+    <input name="movie_id" id="movie_id" value="{{ request.form['movie_id'] }}" required>
+    <label for="seat_numnber">Seat Number</label>
+    <textarea name="seat_numnber" id="seat_numnber">{{ request.form['seat_number'] }}</textarea>
+    <label for="room_number">Room Number</label>
+    <textarea name="room_number" id="room_number">{{ request.form['room_number'] }}</textarea>
+    <label for="theater_addr">Theater Address</label>
+    <textarea name="theater_addr" id="theater_addr">{{ request.form['theater_addr'] }}</textarea>
+    <label for="time_slot">Time Slot</label>
+    <textarea name="time_slot" id="time_slot">{{ request.form['time_slot'] }}</textarea>
+    <input type="submit" value="Reserve">
+  </form>
+{% endblock %}

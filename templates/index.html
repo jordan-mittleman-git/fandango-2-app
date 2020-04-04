@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}Your Current Movie Reservations{% endblock %}</h1>
+  {% if g.user %}
+    <label for="movie_id">Movie Id Lookup</label>
+    <input type="text" name="movie_id" id="movie_id" required>
+    <input type="submit" value="Check Listings for Movie">
+  {% endif %}
+{% endblock %}
+
+{% block content %}
+  {% for reservation in reservations %}
+    <article class="post">
+      <header>
+        <div>
+          <h1>{{ reservation['movie_id'] }}</h1>
+          <div class="about">at theater {{ reservation['theater_addr'] }} on {{ reservation['date'].strftime('%Y-%m-%d') }}</div>
+    </article>
+    {% if not loop.last %}
+      <hr>
+    {% endif %}
+  {% endfor %}
+{% endblock %}

@@ -27,9 +27,6 @@ def create_app(test_config=None):
     except OSError:
         pass
 
-    @app.route("/main")
-    def hello():
-        return "This will be the main index"
 
     # register the database commands
     from flask_app import db
